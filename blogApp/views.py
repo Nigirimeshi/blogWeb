@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from commentApp.forms import CommentForm
 from .models import Post, Category, Tag
 import markdown
+from blogProject import markdownnify
 
 
 def index(request):
@@ -18,7 +19,8 @@ def index(request):
 def detail(request, post_pk):
     """文章详情页"""
     post = get_object_or_404(Post, pk=post_pk)
-    post.body = markdown.markdown(post.body, ['extra', 'codehilite', 'toc'])
+    # post.body = markdown.markdown(post.body, ['extra', 'codehilite', 'toc'])
+    post.body = markdownnify.markdownify(post.body)
 
     # 获得这篇文章下的所有评论
     comment_list = post.comment_set.all().order_by('-created_time')

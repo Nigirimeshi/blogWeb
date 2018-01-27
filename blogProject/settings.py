@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdownx',
     'blogApp',
     'commentApp',
 ]
@@ -75,23 +76,23 @@ WSGI_APPLICATION = 'blogProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'django_blog',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_blog',
+        'USER': 'root',
+        'PASSWORD': 'SteinsGate',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
@@ -131,7 +132,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'
+MARKDOWNX_MARKDOWN_EXTENSIONS = ['markdown.extensions.extra',
+                                 'markdown.extensions.attr_list',
+                                 'markdown.extensions.def_list',
+                                 'markdown.extensions.tables',
+                                 'markdown.extensions.codehilite',
+                                 'markdown.extensions.toc',
+                                 ]
+MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {}

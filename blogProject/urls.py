@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^markdownx/', include('markdownx.urls')),
     url(r'', include('blogApp.urls', namespace='blogApp')),
     url(r'', include('commentApp.urls', namespace='commentApp')),
 ]
