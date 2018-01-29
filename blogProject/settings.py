@@ -25,7 +25,7 @@ SECRET_KEY = 'lo1zj+yq$vk3)&cjh$z&d*)u05%4fau-@%9d*i3rzzv8t6#+vo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '120.79.74.148']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.xiaoyouyu.com']
 
 
 # Application definition
@@ -125,17 +125,17 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False #True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'
