@@ -33,32 +33,44 @@
 
     <br><br>
 
-    {#     简单分页效果#}
-    <div class="pagination-simple">
-        {% if post_list.has_previous %}
-            <a href="?page={{ post_list.previous_page_number }}">上一页</a>
-        {% endif %}
-        <span class="current">第 <a
-                href="">{{ post_list.number }}</a> 页 / 共 {{ post_list.paginator.num_pages }} 页</span>
-        {% if post_list.has_next %}
-            <a href="?page={{ post_list.next_page_number }}">下一页</a>
-        {% endif %}
-    </div>
-
-
-    {#    <div class="pagination">#}
-    {#        <ul>#}
-    {#            <li><a href="">1</a></li>#}
-    {#            <li><a href="">...</a></li>#}
-    {#            <li><a href="">4</a></li>#}
-    {#            <li><a href="">5</a></li>#}
-    {#            <li class="current"><a href="">6</a></li>#}
-    {#            <li><a href="">7</a></li>#}
-    {#            <li><a href="">8</a></li>#}
-    {#            <li><a href="">...</a></li>#}
-    {#            <li><a href="">11</a></li>#}
-    {#        </ul>#}
+    <!-- 基础分页效果 -->
+    {#    <div class="pagination-simple">#}
+    {#        {% if post_list.has_previous %}#}
+    {#            <a href="?page={{ post_list.previous_page_number }}">上一页</a>#}
+    {#        {% endif %}#}
+    {#        <span class="current">第 <a#}
+    {#                href="">{{ post_list.number }}</a> 页 / 共 {{ post_list.paginator.num_pages }} 页</span>#}
+    {#        {% if post_list.has_next %}#}
+    {#            <a href="?page={{ post_list.next_page_number }}">下一页</a>#}
+    {#        {% endif %}#}
     {#    </div>#}
+
+    <!-- 高大上分页效果 -->
+    <div class="pagination">
+        <ul>
+            {% if first_page %}
+                <li><a href="?page=1">1</a></li>
+            {% endif %}
+            {% if left_show_more %}
+                <li><a href="">...</a></li>
+            {% endif %}
+            {% for left_item in left %}
+                <li><a href="?page={{ left_item }}">{{ left_item }}</a></li>
+            {% endfor %}
+
+            <li class="current"><a class="current-page" href="javascript:">{{ post_list.number }}</a></li>
+
+            {% for right_item in right %}
+                <li><a href="?page={{ right_item }}">{{ right_item }}</a></li>
+            {% endfor %}
+            {% if right_show_more %}
+                <li><a href="">...</a></li>
+            {% endif %}
+            {% if last_page %}
+                <li><a href="?page={{ post_list.paginator.num_pages }}">{{ post_list.paginator.num_pages }}</a></li>
+            {% endif %}
+        </ul>
+    </div>
 {% endblock main %}
 
 

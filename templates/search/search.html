@@ -1,0 +1,59 @@
+{% extends 'blogApp/base.html' %}
+{% load highlight %}
+
+{% block main %}
+    {% if query %}
+        {% for result in page.object_list %}
+            <article class="post post-{{ result.object.pk }}">
+                <header class="entry-header">
+                    <h1 class="entry-title">
+                        <a href="{{ result.object.get_absolute_url }}">{% highlight result.object.title with query html_tag "span" css_class "highlight_me" %}</a>
+                    </h1>
+                    <div class="entry-meta">
+                    <span class="post-category"><a
+                            href="{% url 'blogApp:category' result.object.category.pk %}">{{ result.object.category.name }}</a></span>
+                        <span class="post-date">
+                        <a href="{% url 'blogApp:detail' result.object.pk %}">
+                    <time class="entry-date"
+                          datetime="{{ result.object.created_time }}">{{ result.object.created_time }}</time></a></span>
+                        <span class="post-author"><a
+                                href="{% url 'blogApp:author' result.object.author.pk %}">{{ result.object.author }}</a></span>
+                        <span class="comments-link"><a
+                                href="{% url 'blogApp:detail' result.object.pk %}">{{ result.object.comment_set.count }}评论</a></span>
+                        <span class="views-count"><a href="">{{ result.object.views }}阅读</a></span>
+                    </div>
+                </header>
+                <div class="entry-content clearfix">
+                    <p>{% highlight result.object.excerpt with query html_tag "span" css_class "highlight_me" %}...</p>
+                    <div class="read-more cl-effect-14">
+                        <a href="{{ result.object.get_absolute_url }}" class="more-link">继续阅读 <span
+                                class="meta-nav">→</span></a>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <h2>没有搜索到结果！</h2>
+        {% endfor %}
+        {% if page.has_next or page.has_previous %}
+            <div>
+                {% if page.has_previous %}
+                    <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
+                {% endif %}
+                <b>&lt;&lt; 上一页</b>
+                {% if page.has_previous %}
+                    </a>
+                {% endif %}
+                &nbsp;||&nbsp;
+                {% if page.has_next %}
+                    <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">
+                {% endif %}
+                <b>下一页 &gt;&gt;</b>
+                {% if page.has_next %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        请输入关键词!
+    {% endif %}
+{% endblock main %}

@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from blogApp.RSS import RssFeed
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'', include('blogApp.urls', namespace='blogApp')),
     url(r'', include('commentApp.urls', namespace='commentApp')),
+    url(r'^RSS/$', RssFeed(), name='RSS'),
+    url(r'^search/', include('haystack.urls'))
 ]

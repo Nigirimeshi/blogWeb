@@ -1,5 +1,6 @@
 from ..models import Category, Tag, Post
 from django import template
+from django.db.models.aggregates import Count
 
 register = template.Library()
 
@@ -19,10 +20,10 @@ def get_archives():
 @register.simple_tag
 def get_category():
     """获取所有文章分类"""
-    return Category.objects.all()
+    return Category.objects.annotate(count_posts=Count('post')).filter(count_posts__gt=0)
 
 
 @register.simple_tag
 def get_tags():
     """获取所有标签"""
-    return Tag.objects.all()
+    return Tag.objects.annotate(count_posts=Count('post')).filter(count_posts__gt=0)
