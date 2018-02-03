@@ -17,12 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from blogApp.RSS import RssFeed
+from blogApp.views import page_not_found
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^sudoadmin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'', include('blogApp.urls', namespace='blogApp')),
     url(r'', include('commentApp.urls', namespace='commentApp')),
     url(r'^RSS/$', RssFeed(), name='RSS'),
     url(r'^search/', include('haystack.urls'))
 ]
+
+handler404 = page_not_found

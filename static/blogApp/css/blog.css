@@ -1,0 +1,478 @@
+/**
+ * 1.0 通用元素
+ *   1.1 修复 Firefox 导致的响应式表格失效
+ * 2.0 全文检索关键词高亮
+ * 3.0 页脚 footer
+ * 4.0 标签云效果 ( 还未实现 )
+ * 5.0 主要内容 main-content
+ * 6.0 侧边栏和浮动部件
+ * 7.0 分页按钮
+ * 8.0 文章详情页 detail.html
+ * 9.0 关于 about.html
+ * 10.0 时间线 timeline.html
+ *
+ * 12.0 工具类
+ *    12.1 返回顶部按钮
+**/
+
+/**
+ * 1.0 通用元素
+**/
+body {
+    color: #444;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    background-color: #f9f9f9;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: #444;
+}
+
+a:hover,
+a:focus {
+    color: #2dcb89;
+    text-decoration: none;
+}
+
+/**
+ *   1.1 修复 Firefox 导致的响应式表格失效
+**/
+/*@-moz-document url-prefix() {*/
+/*fieldset { display: table-cell; }*/
+/*}*/
+
+/**
+ * 2.0 全文检索关键词高亮
+**/
+span.highlight_me {
+    color: #2dcb89;
+}
+
+/**
+ * 3.0 导航栏
+**/
+.nav-wrap {
+    border-top: 1px solid #2dcb89;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+}
+
+.navbar-default {
+    background-color: #2dcb89;
+}
+
+.navbar-default .navbar-collapse .navbar-nav a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.navbar-default .navbar-collapse .navbar-nav a:hover {
+    color: #fff;
+}
+
+/*.navbar-default .navbar-nav a:before {*/
+/*content: "";*/
+/*position: absolute;*/
+/*left: 50%;*/
+/*bottom: -2px;*/
+/*width: 0;*/
+/*height: 3px;*/
+/*background: #5cb85c;*/
+/*transition: all .3s;*/
+/*}*/
+
+/*.navbar-default .navbar-nav a:hover:before {*/
+/*width: 100%;*/
+/*left: 0;*/
+/*right: 0;*/
+/*}*/
+
+.navbar-default .navbar-collapse .navbar-nav .navbar-active-a {
+    color: #fff;
+    border-bottom: 3px solid #fff;
+}
+
+/*.navbar-default {*/
+/*background-color: #fb8c00;*/
+/*border-color: #fb8c00;*/
+/*}*/
+
+.navbar-form {
+    border: none;
+}
+
+.navbar-form .nav-input-search {
+    border-color: #2dcb89;
+    background-color: #51daa1;
+    color: #fff;
+    border: 0;
+    border-radius: 1px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar-form input::-webkit-input-placeholder { /* WebKit browsers*/
+    color: #fff;
+}
+
+.navbar-form input:-moz-placeholder { /* Mozilla Firefox 4 to 18*/
+    color: #fff;
+}
+
+.navbar-form input::-moz-placeholder { /* Mozilla Firefox 19+*/
+    color: #fff;
+}
+
+.navbar-form input:-ms-input-placeholder { /* Internet Explorer 10+*/
+    color: #fff;
+}
+
+.navbar-collapse {
+    border: none;
+}
+
+.nav-btn-search {
+    border-color: #2dcb89;
+    border-radius: 2px;
+    background-color: #2dcb89;
+}
+
+.nav-btn-search:hover {
+    background-color: #2dcb89;
+    border-color: #2dcb89;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #2dcb89;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: #2dcb89;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar:hover {
+    background-color: #fff;
+}
+
+/**
+ * 3.0 页脚 footer
+**/
+footer {
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: #2dcb89;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 -3px 8px rgba(0, 0, 0, .28);
+}
+
+footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer p {
+    color: #fff;
+
+}
+
+footer a {
+    position: relative;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #fff;
+}
+
+footer a:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all .3s;
+}
+
+footer a:hover:before {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/**
+ * 4.0 标签效果
+**/
+
+/**
+ * 5.0 主要内容 - 页面中部 main-content
+**/
+
+.main-content {
+    margin-top: 15px;
+    background-color: #fafafa;
+    border-radius: 1px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-content:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.article-wrap {
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+}
+
+.article-wrap .article {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+
+.article-wrap .article:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.article-title {
+    /*margin: 0;*/
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.article-category {
+    margin: 0;
+    padding: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.article-category a {
+    color: #dc005a;
+}
+
+.article-excerpt {
+    color: #666C74;
+    line-height: 27px;
+}
+
+.article-footer {
+    margin-bottom: 2px;
+    color: #A3A9A2;
+    font-size: 11px;
+
+}
+
+.article-footer a {
+    color: #A3A9A2;
+}
+
+
+/**
+ * 6.0 侧边栏和浮动部件
+**/
+.widget {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+}
+
+.widget:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.widget h3 {
+    color: #444;
+    font-weight: 500;
+}
+
+.widget a {
+    color: #444;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.widget a:hover {
+    color: #2dcb89;
+}
+
+.widget li {
+    padding-left: 10px;
+    margin-bottom: 1px;
+}
+
+.article-tag li {
+    display: inline-block;
+}
+
+.article-tag a {
+    color: #fff;
+}
+
+/**
+ * 7.0 分页按钮
+**/
+.pagination ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.pagination ul li {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/*.current a {*/
+/*color: red;*/
+/*}*/
+
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    /*margin-left: 15px;*/
+    margin-right: 15px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    line-height: 38px;
+    padding: 0 15px;
+    margin-right: 4px;
+    text-align: center;
+    background-color: #fff;
+    user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #f9f9f9;
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+}
+
+.pagination a:hover {
+    color: #2dcb89;
+    border: 1px solid #2dcb89;
+}
+
+.pagination .current-page {
+    color: white;
+    background-color: #2dcb89;
+}
+
+.pagination .current-page:hover {
+    color: white;
+    border: 1px solid #2dcb89;
+}
+
+.pagination span {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 38px;
+    padding: 0 8px;
+    margin-right: 4px;
+}
+
+/**
+ * 8.0 文章详情页 detail.html
+**/
+.detail-article {
+    padding: 15px 5px 0 5px;
+}
+
+.detail-article header {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #444;
+}
+
+.detail-article-category a {
+    color: #dc005a;
+}
+
+/**
+ *   8.1 评论样式
+**/
+
+.comment-name {
+    color: #dc005a;
+}
+
+/**
+ * 9.0 关于 about.html
+**/
+.about-me {
+    margin-top: 15px;
+}
+
+.img-shadow {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+
+/**
+ * 10.0 时间线 timeline.html
+**/
+.timeline-year {
+    margin-bottom: 40px;
+}
+
+.timeline-month {
+    padding-left: 20px;
+}
+
+.timeline-post {
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+
+/**
+ * 12.0 工具类
+**/
+
+/**
+ *    12.1 返回顶部按钮
+**/
+.back-to-top {
+    display: none;
+    background-color: #2dcb89;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    color: #fff;
+}

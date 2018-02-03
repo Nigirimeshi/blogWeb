@@ -1,0 +1,45 @@
+{% extends 'blogApp/base.html' %}
+{% load staticfiles %}
+
+{% block background-bubble-js %}
+    <script src="{% static 'blogApp/js/background-bubble.js' %}"></script>
+    <script src="{% static 'blogApp/js/quietflow.min.js' %}"></script>
+{% endblock %}
+
+{% block navbar %}
+    <li><a class="" href="/">首页<span class="sr-only">(current)</span></a></li>
+    <li><a class="navbar-active-a" href="{% url 'blogApp:timeline' %}">时间线</a></li>
+    <li><a class="" href="{% url 'blogApp:about' %}">关于</a></li>
+{% endblock navbar %}
+
+
+{% block main %}
+    <div class="timeline-wrap">
+        <ul>
+            {% for y in year %}
+                <li class="timeline-year">
+                    <h2>{{ y.year }}年</h2>
+                    <ul>
+                        {% for m in month %}
+                            {% if m.year == y.year %}
+                                <li class="timeline-month">
+                                    <h3>{{ m.month }}月</h3>
+                                    <ul>
+                                        {% for post in post_list %}
+                                            {% if post.created_time.year == y.year and post.created_time.month == m.month %}
+                                                <h4><li class="timeline-post"><a href="{% url "blogApp:detail" post.pk %}">{{ post }}</a></li></h4>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% empty %}
+                <li>时间线变动率尚未达到 1% _(:з)∠)_</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock main %}
