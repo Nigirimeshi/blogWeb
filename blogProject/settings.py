@@ -132,7 +132,7 @@ USE_TZ = False #True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static')
 # ]
@@ -156,5 +156,6 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+

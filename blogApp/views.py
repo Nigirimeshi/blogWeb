@@ -91,12 +91,28 @@ def author(request, user_pk):
     return render(request, 'blogApp/index.html', context)
 
 
+def about(request):
+    context = {}
+    return render(request, 'blogApp/about.html', context)
+
+
+def timeline(request):
+    year = Post.objects.dates('created_time', 'year', order='DESC')
+    month = Post.objects.dates('created_time', 'month', order='DESC')
+    post_list = Post.objects.all()
+    context = {'year': year,
+               'month': month,
+               'post_list': post_list,
+               }
+    return render(request, 'blogApp/timeline.html', context)
+
+
 def paging_index(request, post_list):
     """
     * 实现 index页面内的分页效果
     * 效果如： 1 .. 2 3 4 5 6 7 8 .. 100
     """
-    per_page_size = 2
+    per_page_size = 5
     paginator = Paginator(post_list, per_page_size)  # 每页显示的文章数量
 
     # 文章总数少于每页显示的文章数量，则不分页
@@ -174,3 +190,7 @@ def paging_index(request, post_list):
                     'post_list': post_list,
                     }
     return context_data
+
+
+def page_not_found(request):
+    return render(request, '404.html')
