@@ -1,10 +1,17 @@
 {% extends 'blogApp/base.html' %}
 {% load staticfiles %}
 
+<<<<<<< HEAD
 {#{% block background-bubble-js %}#}
 {#    <script src="{% static 'blogApp/js/background-bubble.js' %}"></script>#}
 {#    <script src="{% static 'blogApp/js/quietflow.min.js' %}"></script>#}
 {#{% endblock %}#}
+=======
+{% block background-bubble-js %}
+    <script src="{% static 'blogApp/js/background-bubble.js' %}"></script>
+    <script src="{% static 'blogApp/js/quietflow.min.js' %}"></script>
+{% endblock %}
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
 {% block main %}
     <div class="article-wrap">
@@ -16,9 +23,15 @@
                 <div class="article-excerpt">
                     <p>{{ post.excerpt }}</p></div>
                 <div class="article-footer">
+<<<<<<< HEAD
                     <span>{{ post.created_time.year }}年{{ post.created_time.month }}月{{ post.created_time.day }}日&nbsp;&nbsp;</span>
                     <span><span class="glyphicon glyphicon-comment"></span>&nbsp;{{ post.comment_set.count }}&nbsp;&nbsp;</span>
                     <span><span class="glyphicon glyphicon-eye-open"></span>&nbsp;{{ post.views }}&nbsp;&nbsp;</span>
+=======
+                    <span>{{ post.created_time.year }}年{{ post.created_time.month }}月{{ post.created_time.day }}日</span>
+                    <span> {{ post.comment_set.count }}评论</span>
+                    {#                    <span> {{ post.views }}点击量</span>#}
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
                     {#                    <span> <a href="{% url 'blogApp:author' post.author.pk %}">{{ post.author }}</a></span>#}
                 </div>
             </article>

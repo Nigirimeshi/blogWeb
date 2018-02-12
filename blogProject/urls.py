@@ -23,6 +23,7 @@ from blogApp.views import page_not_found
 
 urlpatterns = [
     url(r'^sudoadmin/', admin.site.urls),
+<<<<<<< HEAD
     # url(r'^markdownx/', include('markdownx.urls')),
     url(r'', include('ckeditor_uploader.urls')),
     url(r'^account/', include('django.contrib.auth.urls')),
@@ -44,5 +45,13 @@ urlpatterns = [
     # url(r'^account/reset/done/$', views.password_reset_complete, name='password_reset_complete'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+=======
+    url(r'^markdownx/', include('markdownx.urls')),
+    url(r'', include('blogApp.urls', namespace='blogApp')),
+    url(r'', include('commentApp.urls', namespace='commentApp')),
+    url(r'^RSS/$', RssFeed(), name='RSS'),
+    url(r'^search/', include('haystack.urls'))
+]
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
 handler404 = page_not_found

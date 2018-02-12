@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}HuaJi Blog{% endblock %}</title>
 
+<<<<<<< HEAD
     <!-- favicon.ico -->
     <link rel="shortcut icon" href="{% static 'blogApp/img/favicon.ico' %}">
 
@@ -23,6 +24,16 @@
     <!-- custom css -->
     <link rel="stylesheet" href="{% static 'blogApp/css/blog.css' %}">
     <link rel="stylesheet" href="{% static 'commentApp/css/comment_list.css' %}">
+=======
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Markdown code highlight -->
+    <link rel="stylesheet" href="{% static 'blogApp/css/highlights/github.css' %}">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'blogApp/css/blog.css' %}">
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
     <!-- JQuery -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
@@ -30,8 +41,13 @@
     <!-- Bootstrap js -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
     <!-- 代码高亮 -->
     <script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+=======
+    <!-- background bubble -->
+
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
     <!-- custom js -->
     <script src="{% static 'blogApp/js/blog.js' %}"></script>
@@ -57,6 +73,7 @@
                 </button>
                 <a class="navbar-brand" href="/" style="color: #fff; font-weight: 500; font-size: 19px">Huaji</a>
             </div>
+<<<<<<< HEAD
 
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -84,6 +101,28 @@
 
                 </ul>
 
+=======
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% block navbar %}
+                        <li><a class="navbar-active-a" href="/">首页<span class="sr-only">(current)</span></a></li>
+                        <li><a class="" href="{% url 'blogApp:timeline' %}">时间线</a></li>
+                        <li><a class="" href="{% url 'blogApp:about' %}">关于</a></li>
+                        {#                <li class="dropdown">#}
+                        {#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+                        {#                       aria-expanded="false">更多 <span class="caret"></span></a>#}
+                        {#                    <ul class="dropdown-menu">#}
+                        {#                        <li><a href="#">Action</a></li>#}
+                        {#                        <li><a href="#">Something else here</a></li>#}
+                        {#                        <li role="separator" class="divider"></li>#}
+                        {#                        <li><a href="#">Separated link</a></li>#}
+                        {#                        <li role="separator" class="divider"></li>#}
+                        {#                    </ul>#}
+                    {% endblock navbar %}
+                </ul>
+
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
                 <form class="navbar-form navbar-right" method="get" action="{% url 'haystack_search' %}">
                     <div class="form-group">
                         <div class="input-group">
@@ -102,6 +141,7 @@
     </nav>
 </div>
 
+<<<<<<< HEAD
 {#<div class="jumbotron">#}
 {#    <div class="container">#}
 {#        <section>#}
@@ -112,6 +152,8 @@
 {#        </section>#}
 {#    </div>#}
 {#</div>#}
+=======
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
 <div class="container min-height">
     <div class="row">
@@ -196,7 +238,11 @@
 <footer>
     <div class="container">
         <ul>
+<<<<<<< HEAD
             <li><a href="https://github.com/KaerMorhenXD">Github</a></li>
+=======
+            <li><a href="https://github.com/KaerMorhenXD/blogWeb">Github</a></li>
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
             <li><a href="{% url 'RSS' %}">Rss</a></li>
             <li></li>
             <li></li>

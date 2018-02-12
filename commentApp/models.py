@@ -7,6 +7,7 @@ from mptt.models import TreeForeignKey, MPTTModel
 
 class Comment(MPTTModel):
     """评论信息数据库"""
+<<<<<<< HEAD
     username = models.CharField(max_length=150, verbose_name='用户名')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='评论时间')
     content = RichTextUploadingField(config_name='user')
@@ -18,6 +19,15 @@ class Comment(MPTTModel):
 
     class MPTTMeta:
         order_insertion_by = ['created_time']
+=======
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=255, null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
+    text = models.TextField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    
+    post = models.ForeignKey('blogApp.Post')
+>>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
     def __str__(self):
         if self.parent is not None:
