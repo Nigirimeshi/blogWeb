@@ -5,7 +5,3 @@ blogProject/__pycache__/
 usersApp/__pycache__/
 blogApp/__pycache__/
 commentApp/__pycache__/
-__pycache__/
-migrations/!__init__.py
-media/
-static/ckeditor

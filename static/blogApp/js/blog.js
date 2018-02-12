@@ -21,7 +21,7 @@ $(function () {
     /**
      * 2.0 表格加样式
      **/
-    $('table').addClass('table table-hover');
+    $('table').addClass('table table-hover table-responsive');
 
 
     /**
@@ -42,7 +42,7 @@ $(function () {
     });
 
     $(window).scroll(function () {
-        if ($(window).scrollTop() >= win_height) {
+        if ($(window).scrollTop() >= win_height / 2) {
             $back_top_btn.fadeIn();
         }
         else {

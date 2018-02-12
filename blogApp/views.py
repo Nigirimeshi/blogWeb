@@ -1,22 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
-# from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from django.utils.text import slugify
 
 from commentApp.forms import CommentForm
 from .models import Post, Category, Tag
-# from markdown.extensions.toc import TocExtension
-import markdown
-# from blogProject import markdownnify
-from markdownx.utils import markdownify
 
 
 def index(request):
     """首页"""
     post_list = Post.objects.all()
     context_data = paging_index(request, post_list)
-
     context = context_data
     return render(request, 'blogApp/index.html', context)
 
@@ -26,17 +19,9 @@ def detail(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
     # post.body = markdown.markdown(post.body, ['extra', 'codehilite', 'toc'])
     # post.body = markdownify(post.body)
-    md = markdown.Markdown(extensions=[
-        'extra',
-        'codehilite',
-        'toc',
-        # TocExtension(slugify=slugify),
-    ])
-    post.body = md.convert(post.body)
-    post.toc = md.toc
 
-    # 获得这篇文章下的所有评论
-    comment_list = post.comment_set.all().order_by('-created_time')
+    # 获得这篇文章下的所有评论集合
+    comment_set = post.comment_set.all().order_by('-created_time')
 
     # 引入"comment"数据模型的表单类的实例
     form = CommentForm()
@@ -45,7 +30,7 @@ def detail(request, post_pk):
     post.increase_views()
 
     context = {'post': post,
-               'comment_list': comment_list,
+               'comment_set': comment_set,
                'form': form,
                }
     return render(request, 'blogApp/detail.html', context)

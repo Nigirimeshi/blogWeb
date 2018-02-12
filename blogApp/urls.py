@@ -3,6 +3,7 @@ from . import views
 
 
 app_name = 'blogApp'
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^[?]page=[1-9][0-9]*', views.index, name='index'),

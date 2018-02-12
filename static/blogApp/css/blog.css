@@ -10,7 +10,7 @@
  * 8.0 文章详情页 detail.html
  * 9.0 关于 about.html
  * 10.0 时间线 timeline.html
- *
+ * 11.0 巨幕
  * 12.0 工具类
  *    12.1 返回顶部按钮
 **/
@@ -63,6 +63,7 @@ span.highlight_me {
 }
 
 .navbar {
+    margin-bottom: 20px;
     border-radius: 0;
     border: none;
     box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
@@ -106,6 +107,26 @@ span.highlight_me {
     color: #fff;
     border-bottom: 3px solid #fff;
 }
+
+.navbar-default .navbar-nav .open a:focus {
+    color: #fff;
+    background-color: #2dcb89;
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #51daa1;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+    color: #fff;
+}
+
+.navbar-default .navbar-collapse .dropdown-menu a:hover{
+    background-color: #51daa1;
+}
+
 
 /*.navbar-default {*/
 /*background-color: #fb8c00;*/
@@ -238,12 +259,12 @@ footer a:hover:before {
     margin-top: 15px;
     background-color: #fafafa;
     border-radius: 1px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.main-content:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
+/*.main-content:hover {*/
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);*/
+/*}*/
 
 .article-wrap {
     /*padding-left: 15px;*/
@@ -257,11 +278,11 @@ footer a:hover:before {
     margin-bottom: 15px;
     border: 1px solid transparent;
     border-radius: 2px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 .article-wrap .article:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .article-title {
@@ -413,15 +434,19 @@ footer a:hover:before {
 **/
 .detail-article {
     padding: 15px 5px 0 5px;
+    overflow: auto;
 }
 
 .detail-article header {
     padding-bottom: 20px;
-    border-bottom: 1px dashed #444;
 }
 
 .detail-article-category a {
     color: #dc005a;
+}
+
+.article-footer {
+    padding-bottom: 20px;
 }
 
 /**
@@ -462,9 +487,13 @@ footer a:hover:before {
 }
 
 /**
- * 11.0 blogAdmin
+ * 11.0 巨幕
 **/
-
+.jumbotron {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+    background-color: #2dcb89;
+    color: #fff;
+}
 
 
 /**
@@ -479,6 +508,6 @@ footer a:hover:before {
     background-color: #2dcb89;
     position: fixed;
     bottom: 20px;
-    right: 10px;
+    right: 20px;
     color: #fff;
 }
