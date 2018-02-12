@@ -10,11 +10,7 @@
  * 8.0 文章详情页 detail.html
  * 9.0 关于 about.html
  * 10.0 时间线 timeline.html
-<<<<<<< HEAD
- * 11.0 巨幕
-=======
  *
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
  * 12.0 工具类
  *    12.1 返回顶部按钮
 **/
@@ -67,10 +63,6 @@ span.highlight_me {
 }
 
 .navbar {
-<<<<<<< HEAD
-    margin-bottom: 20px;
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
     border-radius: 0;
     border: none;
     box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
@@ -115,29 +107,6 @@ span.highlight_me {
     border-bottom: 3px solid #fff;
 }
 
-<<<<<<< HEAD
-.navbar-default .navbar-nav .open a:focus {
-    color: #fff;
-    background-color: #2dcb89;
-}
-
-.navbar-nav .dropdown-menu {
-    background-color: #51daa1;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu>li>a,
-.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
-.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
-    color: #fff;
-}
-
-.navbar-default .navbar-collapse .dropdown-menu a:hover{
-    background-color: #51daa1;
-}
-
-
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 /*.navbar-default {*/
 /*background-color: #fb8c00;*/
 /*border-color: #fb8c00;*/
@@ -184,12 +153,8 @@ span.highlight_me {
     background-color: #2dcb89;
 }
 
-<<<<<<< HEAD
 .nav-btn-search:hover,
 .nav-btn-search:focus {
-=======
-.nav-btn-search:hover {
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
     background-color: #2dcb89;
     border-color: #2dcb89;
 }
@@ -273,21 +238,12 @@ footer a:hover:before {
     margin-top: 15px;
     background-color: #fafafa;
     border-radius: 1px;
-<<<<<<< HEAD
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-/*.main-content:hover {*/
-    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);*/
-/*}*/
-=======
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .main-content:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
 .article-wrap {
     /*padding-left: 15px;*/
@@ -301,19 +257,11 @@ footer a:hover:before {
     margin-bottom: 15px;
     border: 1px solid transparent;
     border-radius: 2px;
-<<<<<<< HEAD
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-}
-
-.article-wrap .article:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-=======
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
 .article-wrap .article:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 }
 
 .article-title {
@@ -465,31 +413,17 @@ footer a:hover:before {
 **/
 .detail-article {
     padding: 15px 5px 0 5px;
-<<<<<<< HEAD
-    overflow: auto;
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 }
 
 .detail-article header {
     padding-bottom: 20px;
-<<<<<<< HEAD
-=======
     border-bottom: 1px dashed #444;
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 }
 
 .detail-article-category a {
     color: #dc005a;
 }
 
-<<<<<<< HEAD
-.article-footer {
-    padding-bottom: 20px;
-}
-
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 /**
  *   8.1 评论样式
 **/
@@ -527,18 +461,11 @@ footer a:hover:before {
     margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
 /**
- * 11.0 巨幕
+ * 11.0 blogAdmin
 **/
-.jumbotron {
-    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
-    background-color: #2dcb89;
-    color: #fff;
-}
 
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
+
 
 /**
  * 12.0 工具类
@@ -551,12 +478,7 @@ footer a:hover:before {
     display: none;
     background-color: #2dcb89;
     position: fixed;
-<<<<<<< HEAD
     bottom: 20px;
-    right: 20px;
-=======
-    bottom: 50px;
-    right: 50px;
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
+    right: 10px;
     color: #fff;
 }

@@ -6,22 +6,6 @@
             <h1 class="detail-article-title">{{ post.title }}</h1>
             <div class="detail-article-meta">
                 <span class="detail-article-category">
-<<<<<<< HEAD
-                    <a href="{% url 'blogApp:category' post.category.pk %}" title="点击查找该分类下的文章">{{ post.category }}&nbsp;&nbsp;</a>
-                </span>
-                <span class="detail-article-time pull-right">
-                    <time class="detail-article-time" datetime="{{ post.created_time }}">{{ post.created_time }}</time></span>
-                <span class="comments-link"><a href="#comment-area"
-                                               title="点击跳转到评论区">评论:{{ comment_set|length }}&nbsp;&nbsp;</a></span>
-                <span class="views-count">点击:{{ post.views }}&nbsp;&nbsp;</span>
-            </div>
-            <div class="detail-article-meta">
-
-            </div>
-        </header>
-
-        <div class="article-content clearfix">
-=======
                     <a href="{% url 'blogApp:category' post.category.pk %}" title="点击查找该分类下的文章">{{ post.category }}</a></span>
                 <span class="detail-article-time">
                     <time class="detail-article-time" datetime="{{ post.created_time }}">{{ post.created_time }}</time></span>
@@ -33,22 +17,10 @@
         </header>
 
         <div class="entry-content clearfix">
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
             {{ post.body|safe }}
-        </div>
 
-        <div class="article-footer">
-            <span class="detail-article-author pull-right">
-                    <a href="{% url 'blogApp:author' post.author.pk %}" title="点击查找作者的其他文章">作者：{{ post.author }}</a>
-            </span>
         </div>
     </article>
-<<<<<<< HEAD
-
-    <div class="comment-area clearfix" id="comment-area">
-        {% include 'commentApp/comment_form.html' with post=post %}
-        {% include 'commentApp/comment_list.html' with post=post %}
-=======
 
     <div class="comment-area" id="comment-area">
         <hr>
@@ -126,13 +98,5 @@
     <div class="widget article-content">
         <h3>目录</h3>
         {{ post.toc|safe }}
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
     </div>
-{% endblock main %}
-
-{#{% block toc %}#}
-{#    <div class="widget article-content">#}
-{#        <h3>目录</h3>#}
-{#        {{ post.toc|safe }}#}
-{#    </div>#}
-{#{% endblock toc %}#}
+{% endblock toc %}

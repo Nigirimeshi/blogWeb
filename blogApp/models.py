@@ -2,9 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.html import strip_tags
-from django.conf import settings
 
-from ckeditor_uploader.fields import RichTextUploadingField
+from markdownx.models import MarkdownxField
+from blogProject import markdownnify
 
 
 class Category(models.Model):
@@ -26,15 +26,15 @@ class Tag(models.Model):
 class Post(models.Model):
     """文章数据库"""
     title = models.CharField(max_length=70)
-    body = RichTextUploadingField()
+    body = MarkdownxField()
     created_time = models.DateTimeField()
     modified_time = models.DateTimeField()
     excerpt = models.CharField(max_length=200, blank=True)
     views = models.PositiveIntegerField(default=0)
     # 外键约束
-    category = models.ForeignKey(Category,null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category)
     tag = models.ManyToManyField(Tag, blank=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(User)
 
     class Meta():
         ordering = ['-created_time']
@@ -54,5 +54,5 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         """重写save方法"""
         if not self.excerpt:
-            self.excerpt = strip_tags(self.body)[:70]
+            self.excerpt = strip_tags(markdownnify.markdownify(self.body))[:50]
         super(Post, self).save(*args, **kwargs)

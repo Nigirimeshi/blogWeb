@@ -4,11 +4,7 @@
  * 3.0 动态设定页面最小高度
  * 4.0 回到顶部按钮
  * 5.0 目录可视区浮动
-<<<<<<< HEAD
  * 6.0 ajax 添加 csrf token
-=======
- *
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
  **/
 
 $(function () {
@@ -25,11 +21,7 @@ $(function () {
     /**
      * 2.0 表格加样式
      **/
-<<<<<<< HEAD
-    $('table').addClass('table table-hover table-responsive');
-=======
     $('table').addClass('table table-hover');
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 
 
     /**
@@ -50,11 +42,7 @@ $(function () {
     });
 
     $(window).scroll(function () {
-<<<<<<< HEAD
-        if ($(window).scrollTop() >= win_height / 2) {
-=======
         if ($(window).scrollTop() >= win_height) {
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
             $back_top_btn.fadeIn();
         }
         else {
@@ -75,7 +63,6 @@ $(function () {
     //
     // })
 
-<<<<<<< HEAD
 
     /**
      * 6.0 ajax 添加 csrf token
@@ -110,6 +97,4 @@ $(function () {
             }
         }
     });
-=======
->>>>>>> eae28d47ba32e265defa9514129416545354dcf4
 });
