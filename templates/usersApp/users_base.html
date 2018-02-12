@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- favicon.ico -->
+    <link rel="shortcut icon" href="{% static 'blogApp/img/favicon.ico' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'usersApp/css/users.css' %}">
+
+    <!-- JQuery -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- js -->
+    <script src="{% static 'usersApp/js/users.js' %}"></script>
+
+    {% block js %}
+    {% endblock %}
+</head>
+
+
+<body>
+
+{% block main %}
+{% endblock main %}
+
+</body>
+</html>

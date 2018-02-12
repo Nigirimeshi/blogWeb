@@ -1,0 +1,37 @@
+{% extends 'usersApp/users_base.html' %}
+
+{% block title %}等待确认邮件{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            /**
+             * 2.0 倒计时返回首页
+             **/
+            var time = 6;
+            var timer = setInterval(redirect_index, 1000);
+
+            function redirect_index() {
+                var $time_tip = $('#time-tip');
+                if (time > 0) {
+                    $time_tip.html(time);
+                    time--;
+                } else {
+                    clearInterval(timer);
+                    location.href = "{% url 'blogApp:index' %}";
+                }
+            }
+        })
+    </script>
+{% endblock js %}
+
+{% block main %}
+<div class="form-center">
+        <h2 class="text-center">请前往邮箱确认注册</h2>
+        <div class="text-center">
+            <h1 id="time-tip">7</h1>
+            <p>秒后返回首页</p>
+        </div>
+        <a class="btn btn-block btn-primary btn-lg" href="{% url 'blogApp:index' %}">立即回到首页</a>
+    </div>
+{% endblock main %}

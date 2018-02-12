@@ -1,49 +1,31 @@
 {% extends 'blogApp/base.html' %}
+{% load staticfiles %}
+
+{#{% block background-bubble-js %}#}
+{#    <script src="{% static 'blogApp/js/background-bubble.js' %}"></script>#}
+{#    <script src="{% static 'blogApp/js/quietflow.min.js' %}"></script>#}
+{#{% endblock %}#}
 
 {% block main %}
-    {% for post in post_list %}
-        <article class="post post-{{ post.pk }}">
-            <header class="entry-header">
-                <h1 class="entry-title">
-                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                </h1>
-                <div class="entry-meta">
-                    <span class="post-category"><a
-                            href="{% url 'blogApp:category' post.category.pk %}">{{ post.category.name }}</a></span>
-                    <span class="post-date">
-                        <a href="{% url 'blogApp:detail' post.pk %}">
-                    <time class="entry-date"
-                          datetime="{{ post.created_time }}">{{ post.created_time }}</time></a></span>
-                    <span class="post-author"><a href="{% url 'blogApp:author' post.author.pk %}">{{ post.author }}</a></span>
-                    <span class="comments-link"><a
-                            href="{% url 'blogApp:detail' post.pk %}">{{ post.comment_set.count }}评论</a></span>
-                    <span class="views-count"><a href="">{{ post.views }}阅读</a></span>
+    <div class="article-wrap">
+        {% for post in post_list %}
+            <article class="article article-{{ post.pk }}">
+                <h2 class="article-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                <div class="article-category">
+                    <a href="{% url 'blogApp:category' post.category.pk %}">{{ post.category.name }}</a></div>
+                <div class="article-excerpt">
+                    <p>{{ post.excerpt }}</p></div>
+                <div class="article-footer">
+                    <span>{{ post.created_time.year }}年{{ post.created_time.month }}月{{ post.created_time.day }}日&nbsp;&nbsp;</span>
+                    <span><span class="glyphicon glyphicon-comment"></span>&nbsp;{{ post.comment_set.count }}&nbsp;&nbsp;</span>
+                    <span><span class="glyphicon glyphicon-eye-open"></span>&nbsp;{{ post.views }}&nbsp;&nbsp;</span>
+                    {#                    <span> <a href="{% url 'blogApp:author' post.author.pk %}">{{ post.author }}</a></span>#}
                 </div>
-            </header>
-            <div class="entry-content clearfix">
-                <p>{{ post.excerpt }}......</p>
-                <div class="read-more cl-effect-14">
-                    <a href="{{ post.get_absolute_url }}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
-                </div>
-            </div>
-        </article>
-    {% empty %}
-        <div class="no-post">还没有文章！</div>
-    {% endfor %}
-
-    <br><br>
-
-    <!-- 基础分页效果 -->
-    {#    <div class="pagination-simple">#}
-    {#        {% if post_list.has_previous %}#}
-    {#            <a href="?page={{ post_list.previous_page_number }}">上一页</a>#}
-    {#        {% endif %}#}
-    {#        <span class="current">第 <a#}
-    {#                href="">{{ post_list.number }}</a> 页 / 共 {{ post_list.paginator.num_pages }} 页</span>#}
-    {#        {% if post_list.has_next %}#}
-    {#            <a href="?page={{ post_list.next_page_number }}">下一页</a>#}
-    {#        {% endif %}#}
-    {#    </div>#}
+            </article>
+        {% empty %}
+            <div class="no-post"><h2>一篇文章也没有！博主删库跑路了！</h2></div>
+        {% endfor %}
+    </div>
 
     <!-- 高大上分页效果 -->
     <div class="pagination">
@@ -72,5 +54,9 @@
         </ul>
     </div>
 {% endblock main %}
+
+{#    <canvas id="Quietflow" width="1920" height="1080" style="z-index: -1000; position: absolute; top: 0;"></canvas>#}
+
+
 
 

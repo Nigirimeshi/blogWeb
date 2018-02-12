@@ -3,6 +3,7 @@ from . import views
 
 
 app_name = 'blogApp'
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^[?]page=[1-9][0-9]*', views.index, name='index'),
@@ -11,4 +12,6 @@ urlpatterns = [
     url(r'^category/(?P<cate_pk>[0-9]+)/$', views.category, name='category'),
     url(r'^tag/(?P<tag_pk>[0-9]+)/$', views.tags, name='tags'),
     url(r'^author/(?P<user_pk>[0-9]+)/$', views.author, name='author'),
+    url(r'^about/$', views.about, name='about'),
+    url(r'^timeline/$', views.timeline, name='timeline'),
 ]

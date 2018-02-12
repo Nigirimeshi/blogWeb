@@ -1,0 +1,162 @@
+{% load staticfiles %}
+{% load commentApp_tags %}
+
+
+{% create_comment_form post as form %}
+
+{% if request.user.is_authenticated %}
+    <h3>发表评论</h3>
+    <form class="comment-form clearfix" id="comment-form" action="{% url 'commentApp:submit_comment' post.pk %}"
+          method="post">
+        {% csrf_token %}
+        <div class="comment-user">
+            <span class="comment-name">{{ request.user.username }}&nbsp;</span>
+            <span id="reply-icon" class="glyphicon glyphicon-share-alt" style="display: none;"></span>
+            <span id="reply-to" style="display: none;">&nbsp;回复：
+                    <a class="reply-to-name" href="javascript:" style="color: #dc005a"></a></span>
+        </div>
+        <div class="comment-control" style="overflow: auto">
+            {% for field in form %}
+                {{ field }}
+                {{ field.errors }}
+            {% endfor %}
+        </div>
+        <a class="rkmd-btn ripple-effect btn-lightBlue" id="cancel-reply" style="display: none">取消</a>
+        <button type="submit" class="rkmd-btn ripple-effect btn-lightBlue pull-right">发送</button>
+    </form>
+
+{% else %}
+    <div class="please-login">
+        <h2 class="text-center"><a href="{% url 'login' %}?next={{ request.path }}">登录</a>后评论</h2>
+    </div>
+{% endif %}
+
+<script src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<script>
+    /**
+     * 1.0 页面加载时执行
+     *   1.1 提交新的评论后，页面刷新后滚动到新评论的位置
+     *
+     * 2.0 页面元素加载完执行
+     *   2.1 评论列表中的图片自动缩放
+     *   2.2 取消回复，删除sessionStorage里的reply
+     *   2.3 点击回复，判断是否登陆，设置 local-session
+     *   2.4 ajax 提交评论并绑定对应 post_id，parent_id
+     **/
+
+
+    /**
+     * 1.0 页面加载时执行
+     **/
+    $(window).load(function () {
+
+        if (sessionStorage.getItem('reply')) {
+            sessionStorage.removeItem('reply');
+        }
+
+        /**
+         * 1.1 提交新的评论后，页面刷新后滚动到新评论的位置
+         **/
+        if (sessionStorage.getItem('already_submit_comment')) {
+            var top = $(sessionStorage.getItem('new_comment_location')).offset().top;
+            $('body,html').animate({scrollTop: top}, 50);
+            window.location.hash = sessionStorage.getItem('new_comment_location');
+            sessionStorage.removeItem('already_submit_comment');
+        }
+
+    });
+
+
+    /**
+     * 2.0 页面元素加载完执行
+     **/
+    $(function () {
+        /**
+         * 2.1 评论列表中的图片自动缩放
+         **/
+        var w = $(".comment-list").width();
+        $(".comment-list img").each(function () {
+            var img_w = $(this).width();
+            var img_h = $(this).height();
+            if (img_w > w) {
+                var height = (w * img_h) / img_w;
+                $(this).css({"width": w, "height": height});
+            }
+        });
+
+
+        /**
+         * 2.2 取消回复，删除sessionStorage里的reply
+         **/
+        $("#cancel-reply").click(function () {
+            sessionStorage.removeItem('reply');
+            $('#cancel-reply').css({display: 'none'});
+            $('#reply-to').css({display: 'none'});
+        });
+
+        /**
+         * 2.3 点击回复，判断是否登陆，设置 local-session
+         **/
+        $(".reply-comment").click(function () {
+            if ($(this).hasClass('no-login')) {
+                alert('登陆后才能回复');
+                return false;
+            }
+            var parent_id = $(this).attr('id');
+            sessionStorage.setItem('reply', true);
+            sessionStorage.setItem('parent_id', parent_id);
+            $('#cancel-reply').css({display: 'inline-block'});
+            $('#reply-icon').css({display: 'inline-block'});
+            $('#reply-to').css({display: 'inline-block'});
+            $(".reply-to-name").text($(this).data('name'));
+        });
+
+        /**
+         * 2.4 ajax 提交评论并绑定对应 post_id，parent_id
+         **/
+        $('.comment-form').submit(function (e) {
+            e.preventDefault();
+
+            var content = CKEDITOR.instances.id_content.getData(),
+                parent_id = $('#id_parent option:selected').val(),
+                post = $('#id_post option:selected').val();
+
+            var list = content.replace(/<.*?>/ig, "").replace(/&nbsp;/ig, "").replace(/\s/g, "");
+            if (list.length == 0) {
+                alert("评论不能为空！");
+                {#window.location.reload();#}
+                return false;
+            }
+
+            if (sessionStorage.getItem('reply')) {
+                parent_id = sessionStorage.getItem('parent_id');
+                sessionStorage.removeItem('reply');
+            }
+
+            $.ajaxSetup({
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}'}
+            });
+
+            $.ajax({
+                url: "{% url 'commentApp:submit_comment' post.pk %}",
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    'content': content,
+                    'parent': parent_id,
+                    'post': post
+                },
+                success: function (json) {
+                    sessionStorage.setItem('already_submit_comment', true);
+                    sessionStorage.setItem('new_comment_location', json.new_comment_location);
+                    window.location.reload();
+                },
+                fail: function (json) {
+                    alert(json.msg)
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,49 @@
+{% extends 'usersApp/users_base.html' %}
+
+{% block title %}用户注册{% endblock %}
+
+{% block main %}
+    <form class="form-center" action="{% url 'usersApp:register' %}" method="post">
+        {% csrf_token %}
+        <h2 class="text-center">注册</h2>
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">用户名:</label>
+            {{ form.username }}
+{#            {% if form.username.help_text %}#}
+{#                <p>{{ form.username.help_text|safe }}</p>#}
+{#            {% endif %}#}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">邮箱:</label>
+            {{ form.email }}
+            {% if form.email.help_text %}
+                <p>{{ form.email.help_text|safe }}</p>
+            {% endif %}
+            {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">密码:</label>
+            {{ form.password1 }}
+            {% if form.password.help_text %}
+                <p>{{ form.password.help_text|safe }}</p>
+            {% endif %}
+            {{ form.password.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">确认密码:</label>
+            {{ form.password2 }}
+            {% if form.password2.help_text %}
+                <p>{{ form.password2.help_text|safe }}</p>
+            {% endif %}
+            {{ form.password2.errors }}
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary btn-lg">注册</button>
+
+        <!-- 接收 request.path 的 next -->
+        <input type="hidden" name="next" value="{{ next }}">
+{#        <p class="copyright">© 2018 Copyright. Huaji</p>#}
+    </form>
+{% endblock main %}

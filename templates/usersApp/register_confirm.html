@@ -1,0 +1,38 @@
+{% extends 'usersApp/users_base.html' %}
+
+{% block title %}注册确认{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            /**
+             * 2.0 倒计时返回首页
+             **/
+            var time = 3;
+            var timer = setInterval(redirect_index, 1000);
+
+            function redirect_index() {
+                var $time_tip = $('#time-tip');
+                if (time > 0) {
+                    $time_tip.html(time);
+                    time--;
+                } else {
+                    clearInterval(timer);
+                    location.href = "{% url 'login' %}";
+                }
+            }
+        })
+    </script>
+{% endblock js %}
+
+{% block main %}
+<div class="form-center">
+        <h2 class="text-center">{{ message }}</h2>
+        <div class="text-center">
+            <h1 id="time-tip">4</h1>
+            <p>秒后前往登陆页</p>
+        </div>
+        <a class="btn btn-block btn-primary btn-lg" href="{% url 'login' %}">立即登陆</a>
+        <a class="btn btn-block btn-primary btn-lg" href="{% url 'blogApp:index' %}">回到首页</a>
+    </div>
+{% endblock main %}

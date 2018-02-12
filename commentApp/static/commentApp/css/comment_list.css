@@ -1,0 +1,139 @@
+/**
+     * 1.0 comment_form.html
+     *
+     *
+     *
+     * 2.0 comment_list.html
+     *
+     *
+    **/
+
+/**
+ * 1.0 comment_form.html
+**/
+#id_parent,
+#id_post {
+    display: none;
+}
+
+.please-login a {
+    color: #dc005a;
+}
+
+.comment-user {
+    padding: 5px;
+}
+
+/**
+ * 2.0 comment_list.html
+**/
+
+.no-padding {
+    padding: 0;
+}
+
+.comment-list {
+    overflow: auto;
+}
+
+/*.comment-list img {*/
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    /*!*!*object-fit: cover; *!*!*/
+    /*!*object-fit: contain;*!*/
+    /*object-fit: scale-down;*/
+    /*object-position: top 0 left 0;*/
+/*}*/
+
+.comment-header {
+    padding: 4px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+.comment-body {
+
+}
+
+.comment-footer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #dc005a;
+}
+
+.comment-root {
+    margin-bottom: 20px;
+}
+
+.comment-leaf {
+
+}
+
+.comment-children {
+
+}
+
+.block-level-1 {
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2px;
+}
+
+.block-level-1 .comment-children {
+    padding-left: 15px;
+}
+
+.rkmd-btn {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 1.5rem;
+    color: #424242;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: .8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 2px;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+}
+
+.ripple-effect {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.rkmd-btn.btn-lightBlue {
+    color: #FFF;
+    background-color: #03a9f4;
+}
+
+.rkmd-btn.btn-lightBlue:hover {
+    background-color: #23b9fc;
+}

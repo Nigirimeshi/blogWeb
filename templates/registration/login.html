@@ -1,0 +1,39 @@
+{% extends 'usersApp/users_base.html' %}
+
+{% block title %}登陆{% endblock %}
+
+{% block main %}
+    <form class="form-center" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <h2 class="text-center">登陆</h2>
+        {% if form.non_field_errors %}
+            <div class="alert alert-warning">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">用户名:</label>
+            {{ form.username }}
+            {% if form.username.help_text %}
+                <p>{{ form.username.help_text|safe }}</p>
+            {% endif %}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">密码:</label>
+            {{ form.password }}
+            {% if form.password.help_text %}
+                <p>{{ form.password.help_text|safe }}</p>
+            {% endif %}
+            {{ form.password.errors }}
+        </div>
+        <button type="submit" class="btn btn-block btn-primary btn-lg">登陆</button>
+
+        <!-- 该隐藏控件用来接收 index.html 中登陆传递过来的 request.path -->
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <div class="form-footer clearfix">
+            <div class="pull-left"><span><a href="{% url 'usersApp:register' %}?next={{ next }}">还没账号?</a></span></div>
+            <div class="pull-right"><span><a href="{% url 'password_reset' %}">忘记密码?</a></span></div>
+        </div>
+    </form>
+{% endblock main %}

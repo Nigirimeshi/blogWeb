@@ -1,0 +1,51 @@
+{% load staticfiles %}
+{% load mptt_tags %}
+{% load commentApp_tags %}
+
+{% get_comment_set post as nodes %}
+
+<style>
+
+
+</style>
+
+
+<div class="container-fluid no-padding">
+    <h3>评论区，共 <span>{{ nodes|length }}</span> 条评论</h3>
+    <div class="comment-list">
+        {% if nodes.count > 0 %}
+            {% recursetree nodes %}
+                <div class=" {% if node.is_root_node %}comment-root{% else %}comment-leaf{% endif %}"
+                     id="c{{ node.id }}">
+                    <div class="comment-header clearfix">
+                        <span class="comment-name">{{ node.username }}</span>
+                        {% if not node.is_root_node %}
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                            <span class="comment-reply-to">{{ node.parent.username }}</span>
+                        {% endif %}
+                        <time class="pull-right" datetime="{{ node.created_time }}">
+                            &nbsp;{{ node.created_time|timesince }}&nbsp;前&nbsp;
+                        </time>
+                    </div>
+
+                    <div class="comment-body">
+                        {{ node.content|safe }}
+                    </div>
+                    <div class="comment-footer clearfix">
+                        <a class="reply-comment pull-right {% if not request.user.is_authenticated %}no-login{% endif %}"
+                           data-name="{{ node.username }}"
+                           id="{{ node.id }}" href="#comment-form"
+                           style="color: #dc005a;">回复&nbsp;</a>
+                    </div>
+                </div>
+                <div class="comment-children {% if node.is_root_node %}block-level-1{% endif %}">
+                    {% if not node.is_leaf_node %}
+                        {{ children }}
+                    {% endif %}
+                </div>
+            {% endrecursetree %}
+        {% else %}
+            <p>还没人评论，不来抢个沙发嘛 _(:з)∠)_</p>
+        {% endif %}
+    </div>
+</div>
