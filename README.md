@@ -2,7 +2,8 @@
 Django博客网站
 
 BootStrap + Jquery + django
-环境：django2.0.2, Python3.6，
+环境：django2.0.2, Python3.6
+
 轮子：pip_list.txt 文件内
 
 主要功能：
