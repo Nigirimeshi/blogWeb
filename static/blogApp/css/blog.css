@@ -349,19 +349,26 @@ footer a:hover:before {
 }
 
 .widget a:hover {
-    color: #2dcb89;
+    color: #dc005a;
 }
 
 .widget li {
-    padding-left: 10px;
+    padding-left: 15px;
     margin-bottom: 1px;
+}
+
+.post-count,
+.label-news {
+    color: #dc005a;
+    font-size: 14px;
 }
 
 .article-tag li {
     display: inline-block;
 }
 
-.article-tag a {
+.article-tag a,
+.article-tag a:hover{
     color: #fff;
 }
 
@@ -478,13 +485,18 @@ footer a:hover:before {
 }
 
 .timeline-month {
-    padding-left: 20px;
+    padding-left: 40px;
 }
 
 .timeline-post {
     padding-left: 40px;
     margin-bottom: 20px;
 }
+
+.timeline-post a:hover{
+    color: #dc005a;
+}
+
 
 /**
  * 11.0 巨幕

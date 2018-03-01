@@ -135,7 +135,7 @@
                     {% for post in recent_post_list %}
                         <li>
                             <a href="{{ post.get_absolute_url }}">{{ post.title }}
-                                <span class="label label-danger">New</span></a>
+                                <span class="label label-news">New</span></a>
                         </li>
                     {% empty %}
                         <li>没有新文章</li>
@@ -165,7 +165,7 @@
                     {% for category in category_list %}
                         <li>
                             <a href="{% url 'blogApp:category' category.pk %}">{{ category.name }}
-                                <span class="post-count"> ({{ category.count_posts }})</span></a>
+                                <span class="post-count">&nbsp;{{ category.count_posts }}</span></a>
                         </li>
                     {% empty %}
                         <li>暂时没有分类数据</li>
