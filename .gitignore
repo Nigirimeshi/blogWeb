@@ -1,7 +1,4 @@
-﻿.idea
+﻿.idea/
 settings.py
-db.sqlite3
-blogProject/__pycache__/
-usersApp/__pycache__/
-blogApp/__pycache__/
-commentApp/__pycache__/
+*.pyc
+*.log
