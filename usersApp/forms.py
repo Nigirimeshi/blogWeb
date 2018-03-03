@@ -20,6 +20,16 @@ class RegisterForm(UserCreationForm):
         # help_text=_("Enter the same password as before, for verification."),
     )
 
+    # def clean_email(self):
+    #     """
+    #     自定义处理表单字段
+    #     """
+    #     cleaned_data = self.cleaned_data['email']
+    #     if len(cleaned_data) < 3:
+    #         raise forms.ValidationError("太短了，不是邮箱！")
+    #
+    #     return None
+
     class Meta(UserCreationForm.Meta):
         model = User  # 指定的是自定义的用户模型 - usersApp.User
         fields = ('username', 'email')

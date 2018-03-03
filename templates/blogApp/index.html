@@ -16,7 +16,7 @@
                 <div class="article-excerpt">
                     <p>{{ post.excerpt }}</p></div>
                 <div class="article-footer">
-                    <span>{{ post.created_time.year }}年{{ post.created_time.month }}月{{ post.created_time.day }}日&nbsp;&nbsp;</span>
+                    <span><span class="glyphicon glyphicon-time"></span>&nbsp;{{ post.created_time.year }}年{{ post.created_time.month }}月{{ post.created_time.day }}日&nbsp;&nbsp;</span>
                     <span><span class="glyphicon glyphicon-comment"></span>&nbsp;{{ post.comment_set.count }}&nbsp;&nbsp;</span>
                     <span><span class="glyphicon glyphicon-eye-open"></span>&nbsp;{{ post.views }}&nbsp;&nbsp;</span>
                     {#                    <span> <a href="{% url 'blogApp:author' post.author.pk %}">{{ post.author }}</a></span>#}

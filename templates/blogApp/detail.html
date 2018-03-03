@@ -6,16 +6,13 @@
             <h1 class="detail-article-title">{{ post.title }}</h1>
             <div class="detail-article-meta">
                 <span class="detail-article-category">
-                    <a href="{% url 'blogApp:category' post.category.pk %}" title="点击查找该分类下的文章">{{ post.category }}&nbsp;&nbsp;</a>
+                    <a href="{% url 'blogApp:category' post.category.pk %}" title="点击查找该分类下的文章">{{ post.category }}&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 </span>
                 <span class="detail-article-time pull-right">
-                    <time class="detail-article-time" datetime="{{ post.created_time }}">{{ post.created_time }}</time></span>
+                    <time class="detail-article-time" datetime="{{ post.created_time }}">{{ post.created_time.year }}&nbsp;年&nbsp;{{ post.created_time.month }}月</time></span>
                 <span class="comments-link"><a href="#comment-area"
-                                               title="点击跳转到评论区">评论:{{ comment_set|length }}&nbsp;&nbsp;</a></span>
-                <span class="views-count">点击:{{ post.views }}&nbsp;&nbsp;</span>
-            </div>
-            <div class="detail-article-meta">
-
+                                               title="点击跳转到评论区"><span class="glyphicon glyphicon-comment"></span>&nbsp;{{ comment_set|length }}&nbsp;&nbsp;&nbsp;</a></span>
+                <span class="views-count"><span class="glyphicon glyphicon-fire"></span>&nbsp;{{ post.views }}&nbsp;&nbsp;</span>
             </div>
         </header>
 
@@ -25,7 +22,7 @@
 
         <div class="article-footer">
             <span class="detail-article-author pull-right">
-                    <a href="{% url 'blogApp:author' post.author.pk %}" title="点击查找作者的其他文章">作者：{{ post.author }}</a>
+                    <a href="{% url 'blogApp:author' post.author.pk %}" title="点击查找作者的其他文章"><span class="glyphicon glyphicon-user"></span>&nbsp;{{ post.author }}</a>
             </span>
         </div>
     </article>
