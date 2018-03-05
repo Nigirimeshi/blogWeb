@@ -1,4 +1,9 @@
 ﻿.idea/
+__pycache__/
+migrations/
+/static/admin/
+/static/mptt/
+!__init__.py
 settings.py
 *.pyc
 *.log

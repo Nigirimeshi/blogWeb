@@ -179,7 +179,7 @@
                 <ul>
                     {% for tag in tag_list %}
                         <li>
-                            <a class="label label-info" href="{% url 'blogApp:tags' tag.pk %}">{{ tag.name }}</a>
+                            <a class="label label-tag" href="{% url 'blogApp:tags' tag.pk %}">{{ tag.name }}</a>
                         </li>
                     {% empty %}
                         <li>无标签</li>
