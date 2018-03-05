@@ -19,13 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'lo1zj+yq$vk3)&cjh$z&d*)u05%4fau-@%9d*i3rzzv8t6#+vo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-SITE_IP = ''
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '120.79.74.148', '.xiaoyouyu.top']
+SITE_IP = '127.0.0.1:8000'
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
     'ckeditor',
     'ckeditor_uploader',
     'haystack',
@@ -56,7 +57,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blogProject.urls'
-import django
 
 TEMPLATES = [
     {
@@ -76,15 +76,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogProject.wsgi.application'
 
+# Database
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'django2_blog_site',
+        'USER': 'root',
+        'PASSWORD': 'SteinsGate',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
     }
 }
 
@@ -125,10 +144,10 @@ USE_TZ = False  # True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # 媒体文件
@@ -233,11 +252,26 @@ LOGIN_REDIRECT_URL = '/'
 COMMENT_BIND_MODEL = 'blogApp.Post'
 
 # 邮件服务
+DEFAULT_FROM_EMAIL = 'SteinsGate_Zero@163.com'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = ''
-EMAIL_PORT = 25
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'SteinsGate_Zero@163.com'
+EMAIL_HOST_PASSWORD = 'Kaermorhen0279'
+# EMAIL_FROM = 'Huaji Blog<SteinsGate_Zero@163.com>'
 CONFIRM_DAYS = 3  # 注册邮件有效期
+
+# celery settings
+# 使用 Redis 作为中间人
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+# 任务结果存储在 Redis
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# - 存储到缓存
+# CELERY_RESULT_BACKEND = 'django-cache'
+# - 存储到数据库
+# CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
