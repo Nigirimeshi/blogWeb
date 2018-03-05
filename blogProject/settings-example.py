@@ -19,12 +19,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lo1zj+yq$vk3)&cjh$z&d*)u05%4fau-@%9d*i3rzzv8t6#+vo'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '120.79.74.148', '.xiaoyouyu.top']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 SITE_IP = '127.0.0.1:8000'
 
 # Application definition
@@ -89,9 +89,9 @@ WSGI_APPLICATION = 'blogProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django2_blog_site',
-        'USER': 'root',
-        'PASSWORD': 'SteinsGate',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -252,14 +252,14 @@ LOGIN_REDIRECT_URL = '/'
 COMMENT_BIND_MODEL = 'blogApp.Post'
 
 # 邮件服务
-DEFAULT_FROM_EMAIL = 'SteinsGate_Zero@163.com'
+DEFAULT_FROM_EMAIL = ''
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST = ''
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'SteinsGate_Zero@163.com'
-EMAIL_HOST_PASSWORD = 'Kaermorhen0279'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 # EMAIL_FROM = 'Huaji Blog<SteinsGate_Zero@163.com>'
 CONFIRM_DAYS = 3  # 注册邮件有效期
 
