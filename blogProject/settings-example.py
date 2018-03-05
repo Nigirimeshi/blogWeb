@@ -260,7 +260,7 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-# EMAIL_FROM = 'Huaji Blog<SteinsGate_Zero@163.com>'
+# EMAIL_FROM = ''
 CONFIRM_DAYS = 3  # 注册邮件有效期
 
 # celery settings
