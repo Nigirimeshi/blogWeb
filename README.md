@@ -3,9 +3,9 @@ Django博客网站
 
 BootStrap + Jquery + django
 
-环境：django2.0.2, Python3.6
+环境：django2.0.2, Python3.6, MySQL, Redis
 
-轮子：pip_list.txt 文件内
+需求：requirements.txt
 
 主要功能：
 1. 文章发布，文章展示、浏览
@@ -16,3 +16,4 @@ BootStrap + Jquery + django
 6. 对评论功能提供了富文本编辑器的支持，支持用户上传图片，代码，格式化内容等
 7. 文章搜索，能够全文检索关键字，查找所有匹配文章，并将关键字高亮显示
 8. RSS订阅博客内容
+9. Celery 异步发送邮件
