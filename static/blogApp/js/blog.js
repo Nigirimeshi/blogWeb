@@ -21,7 +21,7 @@ $(function () {
     /**
      * 2.0 表格加样式
      **/
-    $('table').addClass('table table-hover table-responsive');
+    // $('table').addClass('table table-hover table-responsive');
 
 
     /**

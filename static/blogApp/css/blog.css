@@ -251,6 +251,7 @@ footer a:hover:before {
  * 4.0 标签效果
 **/
 
+
 /**
  * 5.0 主要内容 - 页面中部 main-content
 **/
@@ -289,7 +290,7 @@ footer a:hover:before {
     /*margin: 0;*/
     font-size: 22px;
     font-weight: bold;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 .article-category {
@@ -299,7 +300,7 @@ footer a:hover:before {
 }
 
 .article-category a {
-    color: #dc005a;
+    color: #f30265;
 }
 
 .article-excerpt {
@@ -349,27 +350,38 @@ footer a:hover:before {
 }
 
 .widget a:hover {
-    color: #dc005a;
+    color: #f30265;
 }
 
 .widget li {
-    padding-left: 15px;
+    padding-left: 20px;
     margin-bottom: 1px;
 }
 
 .post-count,
 .label-news {
-    color: #dc005a;
-    font-size: 14px;
+    color: #f30265;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .article-tag li {
+    padding-left: 7px;
     display: inline-block;
 }
 
 .article-tag a,
 .article-tag a:hover{
     color: #fff;
+}
+
+.label-tag{
+    background-color: #f30265;
+    border-radius: 3px;
+}
+
+.label-tag:hover{
+    background-color: #fe2b81;
 }
 
 /**
@@ -441,18 +453,35 @@ footer a:hover:before {
 **/
 .detail-article {
     padding: 15px 5px 0 5px;
-    overflow: auto;
+    /*overflow: auto;*/
+}
+
+.detail-article a{
+    color: #2dcb89;
 }
 
 .detail-article header {
     padding-bottom: 20px;
 }
 
+.detail-article-meta {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #777;
+}
+
 .detail-article-category a {
-    color: #dc005a;
+    color: #f30265;
+}
+
+.detail-article-time a,
+.comments-link a,
+.views-count,
+.article-footer a{
+    color: #777;
 }
 
 .article-footer {
+    margin-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -461,7 +490,9 @@ footer a:hover:before {
 **/
 
 .comment-name {
-    color: #dc005a;
+    color: #f30265;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 /**

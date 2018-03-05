@@ -3,6 +3,8 @@ __pycache__/
 migrations/
 /static/admin/
 /static/mptt/
+/static/ckeditor/
+!/static/ckeditor/ckeditor/plugins/prism/
 !__init__.py
 settings.py
 *.pyc
