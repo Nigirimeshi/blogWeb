@@ -160,7 +160,7 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_ALLOW_NONIMAGE_FILES = False  # 将上传功能仅限制为图像文件
 CKEDITOR_BROWSE_SHOW_DIRS = True  # 在“浏览服务器”页面上显示目录,使得按照他们存储在目录中的图像分组，按日期排序
 CKEDITOR_RESTRICT_BY_DATE = True  # 按年/月/日压缩上传的文件
-CKEDITOR_RESTRICT_BY_USER = False  # 限制用户浏览图片，只能看自己上传的
+CKEDITOR_RESTRICT_BY_USER = True  # 限制用户浏览图片，只能看自己上传的
 CKEDITOR_CONFIGS = {
     'default': {
         'language': 'zh-cn',
